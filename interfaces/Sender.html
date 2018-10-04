@@ -1,0 +1,993 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>inspector-influx documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">inspector-influx documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Interfaces</li>
+  <li>Sender</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>lib/metrics/InfluxMetricReporter.ts</code>
+        </p>
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Sender interface for influxdb client abstraction.</p>
+
+            </p>
+
+
+        <section>
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Methods</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#init">init</a>
+                                </li>
+                                <li>
+                                    <a href="#isReady">isReady</a>
+                                </li>
+                                <li>
+                                    <a href="#send">send</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+            <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="init"></a>
+                        <span class="name">
+                            <b>
+                            init
+                            </b>
+                            <a href="#init"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>init()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">lib/metrics/InfluxMetricReporter.ts:50</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Triggers the initialization process.</p>
+</div>
+
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Promise&lt;any&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isReady"></a>
+                        <span class="name">
+                            <b>
+                            isReady
+                            </b>
+                            <a href="#isReady"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>isReady()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">lib/metrics/InfluxMetricReporter.ts:42</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Indicates if the sender is ready to send data.</p>
+</div>
+
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Promise&lt;boolean&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="send"></a>
+                        <span class="name">
+                            <b>
+                            send
+                            </b>
+                            <a href="#send"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>send(points: IPoint[])</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">lib/metrics/InfluxMetricReporter.ts:59</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Sends the given data points to influxdb.</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>points</td>
+                                                        <td>
+                                                                    <code>IPoint[]</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Promise&lt;any&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import &quot;source-map-support/register&quot;;
+
+import * as async from &quot;async&quot;;
+import { IPoint } from &quot;influx&quot;;
+import {
+    Clock,
+    Counter,
+    Gauge,
+    Histogram,
+    Logger,
+    Meter,
+    Metric,
+    MetricRegistry,
+    MetricReporter,
+    MILLISECOND,
+    MINUTE,
+    StdClock,
+    Taggable,
+    Timer,
+    TimeUnit,
+} from &quot;inspector-metrics&quot;;
+
+/**
+ * Enumeration of all metric types.
+ */
+export type MetricType &#x3D; &quot;counter&quot; | &quot;gauge&quot; | &quot;histogram&quot; | &quot;meter&quot; | &quot;timer&quot;;
+
+/**
+ * Sender interface for influxdb client abstraction.
+ *
+ * @export
+ * @interface Sender
+ */
+export interface Sender {
+
+    /**
+     * Indicates if the sender is ready to send data.
+     *
+     * @returns {Promise&lt;boolean&gt;}
+     * @memberof Sender
+     */
+    isReady(): Promise&lt;boolean&gt;;
+
+    /**
+     * Triggers the initialization process.
+     *
+     * @returns {Promise&lt;any&gt;}
+     * @memberof Sender
+     */
+    init(): Promise&lt;any&gt;;
+
+    /**
+     * Sends the given data points to influxdb.
+     *
+     * @param {IPoint[]} points
+     * @returns {Promise&lt;any&gt;}
+     * @memberof Sender
+     */
+    send(points: IPoint[]): Promise&lt;any&gt;;
+
+}
+
+/**
+ * Entry interface to track the last value and timestamp of a metric instance.
+ *
+ * @interface MetricEntry
+ */
+interface MetricEntry {
+    /**
+     * Timestamp of the last reporting.
+     *
+     * @type {number}
+     * @memberof MetricEntry
+     */
+    lastReport: number;
+
+    /**
+     * Last reported reference value.
+     *
+     * @type {number}
+     * @memberof MetricEntry
+     */
+    lastValue: number;
+}
+
+/**
+ * InfluxDB reporter implementation.
+ *
+ * @export
+ * @class InfluxMetricReporter
+ * @extends {MetricReporter}
+ */
+export class InfluxMetricReporter extends MetricReporter {
+
+    /**
+     * Clock used to determine the current timestamp.
+     *
+     * @private
+     * @type {Clock}
+     * @memberof InfluxMetricReporter
+     */
+    private clock: Clock;
+    /**
+     * Reference for the object returned by the scheduler function.
+     *
+     * @private
+     * @type {NodeJS.Timer}
+     * @memberof InfluxMetricReporter
+     */
+    private timer: NodeJS.Timer;
+    /**
+     * Reporting interval.
+     *
+     * @private
+     * @type {number}
+     * @memberof InfluxMetricReporter
+     */
+    private interval: number;
+    /**
+     * Minimal timeout to include a metric instance into a reporting.
+     *
+     * @private
+     * @type {number}
+     * @memberof InfluxMetricReporter
+     */
+    private minReportingTimeout: number;
+    /**
+     * Time unit for the reporting interval.
+     *
+     * @private
+     * @type {TimeUnit}
+     * @memberof InfluxMetricReporter
+     */
+    private unit: TimeUnit;
+    /**
+     * Tags assigned to this reporter instance - reported for every metric instance.
+     *
+     * @private
+     * @type {Map&lt;string, string&gt;}
+     * @memberof InfluxMetricReporter
+     */
+    private tags: Map&lt;string, string&gt;;
+    /**
+     * Metadata for the logger.
+     *
+     * @private
+     * @type {*}
+     * @memberof InfluxMetricReporter
+     */
+    private logMetadata: any;
+    /**
+     * async queue used to queue data point sending.
+     *
+     * @private
+     * @type {async.AsyncQueue&lt;any&gt;}
+     * @memberof InfluxMetricReporter
+     */
+    private queue: async.AsyncQueue&lt;any&gt;;
+    /**
+     * Minimal logger interface to report failures.
+     *
+     * @private
+     * @type {Logger}
+     * @memberof InfluxMetricReporter
+     */
+    private log: Logger &#x3D; console;
+    /**
+     * Sender instance used to report metrics.
+     *
+     * @private
+     * @type {Sender}
+     * @memberof InfluxMetricReporter
+     */
+    private sender: Sender;
+    /**
+     * Saves the state of each reported metrics.
+     *
+     * @private
+     * @type {Map&lt;number, MetricEntry&gt;}
+     * @memberof InfluxMetricReporter
+     */
+    private metricStates: Map&lt;number, MetricEntry&gt; &#x3D; new Map();
+
+    /**
+     * Creates an instance of InfluxMetricReporter.
+     *
+     * @param {Sender} sender The influx sender instance.
+     * @param {number} [interval&#x3D;1000] The reporting interval.
+     * @param {TimeUnit} [unit&#x3D;MILLISECOND] The time unit for the reporting interval.
+     * @param {Map&lt;string, string&gt;} [tags&#x3D;new Map()] Tags assigned to every metric.
+     * @param {Clock} [clock&#x3D;new StdClock()] The clock - used to determine the timestamp of the metrics while reporting.
+     * @param {number} [minReportingTimeout&#x3D;1] The time in minutes the report sends even unchanged metrics.
+     * @memberof InfluxMetricReporter
+     */
+    public constructor(
+        sender: Sender,
+        interval: number &#x3D; 1000,
+        unit: TimeUnit &#x3D; MILLISECOND,
+        tags: Map&lt;string, string&gt; &#x3D; new Map(),
+        clock: Clock &#x3D; new StdClock(),
+        minReportingTimeout &#x3D; 1) {
+        super();
+
+        this.sender &#x3D; sender;
+        this.interval &#x3D; interval;
+        this.unit &#x3D; unit;
+        this.tags &#x3D; tags;
+        this.clock &#x3D; clock;
+        this.minReportingTimeout &#x3D; MINUTE.convertTo(minReportingTimeout, MILLISECOND);
+
+        this.logMetadata &#x3D; {
+            interval,
+            tags,
+            unit,
+        };
+
+        this.queue &#x3D; async.queue((task: (clb: () &#x3D;&gt; void) &#x3D;&gt; void, callback: () &#x3D;&gt; void) &#x3D;&gt; {
+            task(callback);
+        }, 1);
+
+        let unlock: () &#x3D;&gt; void &#x3D; null;
+        this.queue.push((callback: () &#x3D;&gt; void) &#x3D;&gt; {
+            unlock &#x3D; callback;
+        });
+
+        this.sender.init()
+            .then(() &#x3D;&gt; unlock());
+    }
+
+    /**
+     * Gets the reporter tags.
+     *
+     * @returns {Map&lt;string, string&gt;}
+     * @memberof InfluxMetricReporter
+     */
+    public getTags(): Map&lt;string, string&gt; {
+        return this.tags;
+    }
+
+    /**
+     * Sets the reporter tags.
+     *
+     * @param {Map&lt;string, string&gt;} tags
+     * @memberof InfluxMetricReporter
+     */
+    public setTags(tags: Map&lt;string, string&gt;): void {
+        this.tags &#x3D; tags;
+    }
+
+    /**
+     * Gets the logger instance.
+     *
+     * @returns {Logger}
+     * @memberof InfluxMetricReporter
+     */
+    public getLog(): Logger {
+        return this.log;
+    }
+
+    /**
+     * Sets the logger instance.
+     *
+     * @param {Logger} log
+     * @memberof InfluxMetricReporter
+     */
+    public setLog(log: Logger): void {
+        this.log &#x3D; log;
+    }
+
+    /**
+     * Uses the scheduler function to trigger periodical reporting.
+     *
+     * @memberof InfluxMetricReporter
+     */
+    public start(): void {
+        const interval: number &#x3D; this.unit.convertTo(this.interval, MILLISECOND);
+        this.timer &#x3D; setInterval(() &#x3D;&gt; this.report(), interval);
+    }
+
+    /**
+     * Stops the timer reference returned by the scheduler function.
+     *
+     * @memberof InfluxMetricReporter
+     */
+    public stop(): void {
+        if (this.timer) {
+            this.timer.unref();
+        }
+    }
+
+    /**
+     * Reports the data points for each registered {@link MetricRegistry}.
+     *
+     * @private
+     * @memberof InfluxMetricReporter
+     */
+    private async report() {
+        const senderReady &#x3D; await this.sender.isReady();
+        if (senderReady &amp;&amp; this.metricRegistries &amp;&amp; this.metricRegistries.length &gt; 0) {
+            this.metricRegistries.forEach((registry) &#x3D;&gt; this.reportMetricRegistry(registry));
+        }
+    }
+
+    /**
+     * Reports the data points for the specified {@link MetricRegistry}.
+     *
+     * @private
+     * @param {MetricRegistry} registry
+     * @memberof InfluxMetricReporter
+     */
+    private reportMetricRegistry(registry: MetricRegistry): void {
+        const now: Date &#x3D; new Date(this.clock.time().milliseconds);
+
+        this.reportMetrics(registry.getCounterList(), now, &quot;counter&quot;,
+            (counter: Counter, date: Date) &#x3D;&gt; this.reportCounter(counter, date),
+            (counter: Counter) &#x3D;&gt; counter.getCount());
+        this.reportMetrics(registry.getGaugeList(), now, &quot;gauge&quot;,
+            (gauge: Gauge&lt;any&gt;, date: Date) &#x3D;&gt; this.reportGauge(gauge, date),
+            (gauge: Gauge&lt;any&gt;) &#x3D;&gt; gauge.getValue());
+        this.reportMetrics(registry.getHistogramList(), now, &quot;histogram&quot;,
+            (histogram: Histogram, date: Date) &#x3D;&gt; this.reportHistogram(histogram, date),
+            (histogram: Histogram) &#x3D;&gt; histogram.getCount());
+        this.reportMetrics(registry.getMeterList(), now, &quot;meter&quot;,
+            (meter: Meter, date: Date) &#x3D;&gt; this.reportMeter(meter, date),
+            (meter: Meter) &#x3D;&gt; meter.getCount());
+        this.reportMetrics(registry.getTimerList(), now, &quot;timer&quot;,
+            (timer: Timer, date: Date) &#x3D;&gt; this.reportTimer(timer, date),
+            (timer: Timer) &#x3D;&gt; timer.getCount());
+    }
+
+    /**
+     * Reports a collection of metric instance for a certain type.
+     *
+     * @private
+     * @template T
+     * @param {T[]} metrics
+     * @param {Date} date
+     * @param {MetricType} type the type to report.
+     * @param {(metric: Metric, date: Date) &#x3D;&gt; IPoint} reportFunction
+     *      The function to build the data points for a certain metric.
+     * @param {(metric: Metric) &#x3D;&gt; number} lastModifiedFunction
+     *      function to determine if a metric has a different value since the last reporting.
+     * @memberof InfluxMetricReporter
+     */
+    private reportMetrics&lt;T extends Metric&gt;(
+        metrics: T[],
+        date: Date,
+        type: MetricType,
+        reportFunction: (metric: Metric, date: Date) &#x3D;&gt; IPoint,
+        lastModifiedFunction: (metric: Metric) &#x3D;&gt; number): void {
+
+        const points: IPoint[] &#x3D; [];
+        metrics.forEach((metric) &#x3D;&gt; {
+            const metricId &#x3D; (metric as any).id;
+            let changed &#x3D; true;
+            if (metricId) {
+                changed &#x3D; this.hasChanged(metricId, lastModifiedFunction(metric), date);
+            }
+
+            if (changed) {
+                const point &#x3D; reportFunction(metric, date);
+                if (!!point) {
+                    points.push(point);
+                }
+            }
+        });
+        if (points.length &gt; 0) {
+            this.sendPoints(points, type);
+        }
+    }
+
+    /**
+     * Determines if the specified metric has changed. This is always true if
+     * the minimum-reporting timeout was reached.
+     *
+     * @private
+     * @param {number} metricId
+     * @param {number} lastValue
+     * @param {Date} date
+     * @returns {boolean}
+     * @memberof InfluxMetricReporter
+     */
+    private hasChanged(metricId: number, lastValue: number, date: Date): boolean {
+        let changed &#x3D; true;
+        let metricEntry &#x3D; {
+            lastReport: 0,
+            lastValue,
+        };
+        if (this.metricStates.has(metricId)) {
+            metricEntry &#x3D; this.metricStates.get(metricId);
+            changed &#x3D; metricEntry.lastValue !&#x3D;&#x3D; lastValue;
+            if (!changed) {
+                changed &#x3D; metricEntry.lastReport + this.minReportingTimeout &lt; date.getTime();
+            }
+        }
+        if (changed) {
+            metricEntry.lastReport &#x3D; date.getTime();
+        }
+        this.metricStates.set(metricId, metricEntry);
+        return changed;
+    }
+
+    /**
+     * Computes and reports the fields of the counter.
+     *
+     * @private
+     * @param {Counter} counter
+     * @param {Date} date
+     * @returns {IPoint}
+     * @memberof InfluxMetricReporter
+     */
+    private reportCounter(counter: Counter, date: Date): IPoint {
+        const value &#x3D; counter.getCount();
+        if (!value || isNaN(value)) {
+            return null;
+        }
+        const fields: any &#x3D; {};
+        const fieldNamePrefix &#x3D; this.getFieldNamePrefix(counter);
+        const measurement &#x3D; this.getMeasurementName(counter);
+
+        fields[&#x60;${fieldNamePrefix}count&#x60;] &#x3D; counter.getCount() || 0;
+
+        return {
+            fields,
+            measurement,
+            tags: this.buildTags(counter),
+            timestamp: date,
+        };
+    }
+
+    /**
+     * Computes and reports the fields of the gauge.
+     *
+     * @private
+     * @param {Gauge&lt;any&gt;} gauge
+     * @param {Date} date
+     * @returns {IPoint}
+     * @memberof InfluxMetricReporter
+     */
+    private reportGauge(gauge: Gauge&lt;any&gt;, date: Date): IPoint {
+        const value &#x3D; gauge.getValue();
+        if (!value || isNaN(value)) {
+            return null;
+        }
+        const fields: any &#x3D; {};
+        const fieldNamePrefix &#x3D; this.getFieldNamePrefix(gauge);
+        const measurement &#x3D; this.getMeasurementName(gauge);
+
+        fields[&#x60;${fieldNamePrefix}value&#x60;] &#x3D; gauge.getValue() || 0;
+
+        return {
+            fields,
+            measurement,
+            tags: this.buildTags(gauge),
+            timestamp: date,
+        };
+    }
+
+    /**
+     * Computes and reports the fields of the histogram.
+     *
+     * @private
+     * @param {Histogram} histogram
+     * @param {Date} date
+     * @returns {IPoint}
+     * @memberof InfluxMetricReporter
+     */
+    private reportHistogram(histogram: Histogram, date: Date): IPoint {
+        const value &#x3D; histogram.getCount();
+        if (!value || isNaN(value)) {
+            return null;
+        }
+        const snapshot &#x3D; histogram.getSnapshot();
+        const fields: any &#x3D; {};
+        const fieldNamePrefix &#x3D; this.getFieldNamePrefix(histogram);
+        const measurement &#x3D; this.getMeasurementName(histogram);
+
+        fields[&#x60;${fieldNamePrefix}count&#x60;] &#x3D; histogram.getCount() || 0;
+        fields[&#x60;${fieldNamePrefix}max&#x60;] &#x3D; this.getNumber(snapshot.getMax());
+        fields[&#x60;${fieldNamePrefix}mean&#x60;] &#x3D; this.getNumber(snapshot.getMean());
+        fields[&#x60;${fieldNamePrefix}min&#x60;] &#x3D; this.getNumber(snapshot.getMin());
+        fields[&#x60;${fieldNamePrefix}p50&#x60;] &#x3D; this.getNumber(snapshot.getMedian());
+        fields[&#x60;${fieldNamePrefix}p75&#x60;] &#x3D; this.getNumber(snapshot.get75thPercentile());
+        fields[&#x60;${fieldNamePrefix}p95&#x60;] &#x3D; this.getNumber(snapshot.get95thPercentile());
+        fields[&#x60;${fieldNamePrefix}p98&#x60;] &#x3D; this.getNumber(snapshot.get98thPercentile());
+        fields[&#x60;${fieldNamePrefix}p99&#x60;] &#x3D; this.getNumber(snapshot.get99thPercentile());
+        fields[&#x60;${fieldNamePrefix}p999&#x60;] &#x3D; this.getNumber(snapshot.get999thPercentile());
+        fields[&#x60;${fieldNamePrefix}stddev&#x60;] &#x3D; this.getNumber(snapshot.getStdDev());
+
+        return {
+            fields,
+            measurement,
+            tags: this.buildTags(histogram),
+            timestamp: date,
+        };
+    }
+
+    /**
+     * Computes and reports the fields of the meter.
+     *
+     * @private
+     * @param {Meter} meter
+     * @param {Date} date
+     * @returns {IPoint}
+     * @memberof InfluxMetricReporter
+     */
+    private reportMeter(meter: Meter, date: Date): IPoint {
+        const value &#x3D; meter.getCount();
+        if (!value || isNaN(value)) {
+            return null;
+        }
+        const fields: any &#x3D; {};
+        const fieldNamePrefix &#x3D; this.getFieldNamePrefix(meter);
+        const measurement &#x3D; this.getMeasurementName(meter);
+
+        fields[&#x60;${fieldNamePrefix}count&#x60;] &#x3D; meter.getCount() || 0;
+        fields[&#x60;${fieldNamePrefix}m15_rate&#x60;] &#x3D; this.getNumber(meter.get15MinuteRate());
+        fields[&#x60;${fieldNamePrefix}m1_rate&#x60;] &#x3D; this.getNumber(meter.get1MinuteRate());
+        fields[&#x60;${fieldNamePrefix}m5_rate&#x60;] &#x3D; this.getNumber(meter.get5MinuteRate());
+        fields[&#x60;${fieldNamePrefix}mean_rate&#x60;] &#x3D; this.getNumber(meter.getMeanRate());
+
+        return {
+            fields,
+            measurement,
+            tags: this.buildTags(meter),
+            timestamp: date,
+        };
+    }
+
+    /**
+     * Computes and reports the fields of the timer.
+     *
+     * @private
+     * @param {Timer} timer
+     * @param {Date} date
+     * @returns {IPoint}
+     * @memberof InfluxMetricReporter
+     */
+    private reportTimer(timer: Timer, date: Date): IPoint {
+        const value &#x3D; timer.getCount();
+        if (!value || isNaN(value)) {
+            return null;
+        }
+        const snapshot &#x3D; timer.getSnapshot();
+        const fields: any &#x3D; {};
+        const fieldNamePrefix &#x3D; this.getFieldNamePrefix(timer);
+        const measurement &#x3D; this.getMeasurementName(timer);
+
+        fields[&#x60;${fieldNamePrefix}count&#x60;] &#x3D; timer.getCount() || 0;
+        fields[&#x60;${fieldNamePrefix}m15_rate&#x60;] &#x3D; this.getNumber(timer.get15MinuteRate());
+        fields[&#x60;${fieldNamePrefix}m1_rate&#x60;] &#x3D; this.getNumber(timer.get1MinuteRate());
+        fields[&#x60;${fieldNamePrefix}m5_rate&#x60;] &#x3D; this.getNumber(timer.get5MinuteRate());
+        fields[&#x60;${fieldNamePrefix}max&#x60;] &#x3D; this.getNumber(snapshot.getMax());
+        fields[&#x60;${fieldNamePrefix}mean&#x60;] &#x3D; this.getNumber(snapshot.getMean());
+        fields[&#x60;${fieldNamePrefix}mean_rate&#x60;] &#x3D; this.getNumber(timer.getMeanRate());
+        fields[&#x60;${fieldNamePrefix}min&#x60;] &#x3D; this.getNumber(snapshot.getMin());
+        fields[&#x60;${fieldNamePrefix}p50&#x60;] &#x3D; this.getNumber(snapshot.getMedian());
+        fields[&#x60;${fieldNamePrefix}p75&#x60;] &#x3D; this.getNumber(snapshot.get75thPercentile());
+        fields[&#x60;${fieldNamePrefix}p95&#x60;] &#x3D; this.getNumber(snapshot.get95thPercentile());
+        fields[&#x60;${fieldNamePrefix}p98&#x60;] &#x3D; this.getNumber(snapshot.get98thPercentile());
+        fields[&#x60;${fieldNamePrefix}p99&#x60;] &#x3D; this.getNumber(snapshot.get99thPercentile());
+        fields[&#x60;${fieldNamePrefix}p999&#x60;] &#x3D; this.getNumber(snapshot.get999thPercentile());
+        fields[&#x60;${fieldNamePrefix}stddev&#x60;] &#x3D; this.getNumber(snapshot.getStdDev());
+
+        return {
+            fields,
+            measurement,
+            tags: this.buildTags(timer),
+            timestamp: date,
+        };
+    }
+
+    /**
+     * Builds the prefix for a field name.
+     *
+     * @private
+     * @param {Metric} metric
+     * @returns {string}
+     * @memberof InfluxMetricReporter
+     */
+    private getFieldNamePrefix(metric: Metric): string {
+        if (metric.getGroup()) {
+            return &#x60;${metric.getName()}.&#x60;;
+        }
+        return &quot;&quot;;
+    }
+
+    /**
+     * Builds the prefix for the metric name.
+     *
+     * @private
+     * @param {Metric} metric
+     * @returns {string}
+     * @memberof InfluxMetricReporter
+     */
+    private getMeasurementName(metric: Metric): string {
+        if (metric.getGroup()) {
+            return metric.getGroup();
+        }
+        return metric.getName();
+    }
+
+    /**
+     * Builds the tags using the metric&#x27;s tags and this reportes tags.
+     *
+     * @private
+     * @param {Taggable} taggable
+     * @returns {{ [key: string]: string }}
+     * @memberof InfluxMetricReporter
+     */
+    private buildTags(taggable: Taggable): { [key: string]: string } {
+        const tags: { [x: string]: string } &#x3D; {};
+        this.tags.forEach((tag, key) &#x3D;&gt; tags[key] &#x3D; tag);
+        taggable.getTags().forEach((tag, key) &#x3D;&gt; tags[key] &#x3D; tag);
+        return tags;
+    }
+
+    /**
+     * Uses the sender to report the given data points.
+     *
+     * @private
+     * @param {IPoint[]} points
+     * @param {MetricType} type
+     * @memberof InfluxMetricReporter
+     */
+    private sendPoints(points: IPoint[], type: MetricType) {
+        this.queue.push(async (callback: () &#x3D;&gt; void) &#x3D;&gt; {
+            try {
+                await this.sender.send(points);
+                if (this.log) {
+                    this.log.debug(&#x60;wrote ${type} metrics&#x60;, this.logMetadata);
+                }
+            } catch (reason) {
+                if (this.log) {
+                    this.log.error(&#x60;error writing ${type} metrics - reason: ${reason}&#x60;, reason, this.logMetadata);
+                }
+            } finally {
+                callback();
+            }
+        });
+    }
+
+    /**
+     * Either gets 0 or the specifed value.
+     *
+     * @private
+     * @param {number} value
+     * @returns {number}
+     * @memberof InfluxMetricReporter
+     */
+    private getNumber(value: number): number {
+        if (isNaN(value)) {
+            return 0;
+        }
+        return value;
+    }
+
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'Sender.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <script src="../js/menu-wc.js"></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
