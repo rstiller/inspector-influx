@@ -131,7 +131,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">lib/metrics/InfluxMetricReporter.ts:50</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">lib/metrics/InfluxMetricReporter.ts:51</a></div>
                             </td>
                         </tr>
 
@@ -176,7 +176,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">lib/metrics/InfluxMetricReporter.ts:42</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">lib/metrics/InfluxMetricReporter.ts:43</a></div>
                             </td>
                         </tr>
 
@@ -221,7 +221,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">lib/metrics/InfluxMetricReporter.ts:59</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">lib/metrics/InfluxMetricReporter.ts:60</a></div>
                             </td>
                         </tr>
 
@@ -293,6 +293,7 @@ import {
     MetricReporter,
     MILLISECOND,
     MINUTE,
+    MonotoneCounter,
     StdClock,
     Taggable,
     Timer,
@@ -590,6 +591,9 @@ export class InfluxMetricReporter extends MetricReporter {
     private reportMetricRegistry(registry: MetricRegistry): void {
         const now: Date &#x3D; new Date(this.clock.time().milliseconds);
 
+        this.reportMetrics(registry.getMonotoneCounterList(), now, &quot;counter&quot;,
+            (counter: MonotoneCounter, date: Date) &#x3D;&gt; this.reportMonotoneCounter(counter, date),
+            (counter: MonotoneCounter) &#x3D;&gt; counter.getCount());
         this.reportMetrics(registry.getCounterList(), now, &quot;counter&quot;,
             (counter: Counter, date: Date) &#x3D;&gt; this.reportCounter(counter, date),
             (counter: Counter) &#x3D;&gt; counter.getCount());
@@ -677,6 +681,34 @@ export class InfluxMetricReporter extends MetricReporter {
         }
         this.metricStates.set(metricId, metricEntry);
         return changed;
+    }
+
+    /**
+     * Computes and reports the fields of the monotone-counter.
+     *
+     * @private
+     * @param {MonotoneCounter} counter
+     * @param {Date} date
+     * @returns {IPoint}
+     * @memberof InfluxMetricReporter
+     */
+    private reportMonotoneCounter(counter: MonotoneCounter, date: Date): IPoint {
+        const value &#x3D; counter.getCount();
+        if (!value || isNaN(value)) {
+            return null;
+        }
+        const fields: any &#x3D; {};
+        const fieldNamePrefix &#x3D; this.getFieldNamePrefix(counter);
+        const measurement &#x3D; this.getMeasurementName(counter);
+
+        fields[&#x60;${fieldNamePrefix}count&#x60;] &#x3D; counter.getCount() || 0;
+
+        return {
+            fields,
+            measurement,
+            tags: this.buildTags(counter),
+            timestamp: date,
+        };
     }
 
     /**
