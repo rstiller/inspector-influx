@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -52,11 +49,11 @@
 </p>
 
 <p>This library is made for <a href="https://github.com/rstiller/inspector-metrics">inspector-metrics</a> node module and
-is meant to be used with <code>typescript</code> / <code>nodejs</code>.<br>It uses <a href="https://github.com/node-influx/node-influx">node-influx</a> as influxdb client.</p>
+is meant to be used with <code>nodejs</code>.<br>It uses <a href="https://github.com/node-influx/node-influx">node-influx</a> as influxdb client.</p>
 <h2 id="install">install</h2>
 <p><code>npm install --save inspector-influx</code></p>
 <h2 id="basic-usage">basic usage</h2>
-<div><pre class="line-numbers"><code class="language-typescript">import { InfluxMetricReporter } from &quot;inspector-influx&quot;;
+<div><pre class="line-numbers"><code class="language-typescript">import { DefaultSender, InfluxMetricReporter } from &quot;inspector-influx&quot;;
 import { MetricRegistry, Timer } from &quot;inspector-metrics&quot;;
 
 // influxdb config from https://github.com/node-influx/node-influx/blob/master/src/index.ts#L80
@@ -69,7 +66,10 @@ const dbConfig = {
     ]
 };
 
-const reporter: InfluxMetricReporter = new InfluxMetricReporter(dbConfig);
+const sender = new DefaultSender(dbConfig);
+const reporter: InfluxMetricReporter = new InfluxMetricReporter({
+    sender,
+});
 const registry: MetricRegistry = new MetricRegistry();
 const requests: Timer = registry.newTimer(&quot;requests&quot;);
 
@@ -88,7 +88,15 @@ setInterval(() =&gt; {
             a = b + i;
         }
     });
-}, 100);</code></pre></div><h2 id="license">License</h2>
+}, 100);</code></pre></div><h2 id="local-dev">local dev</h2>
+<h3 id="compile-test-with-different-nodejs-versions">compile &amp; test with different nodejs versions</h3>
+<p>build docker images:  </p>
+<div><pre class="line-numbers"><code class="language-bash">docker-compose build</code></pre></div><p>run tests:  </p>
+<div><pre class="line-numbers"><code class="language-bash">docker-compose run node6
+docker-compose run node7
+docker-compose run node8
+docker-compose run node9
+docker-compose run node10</code></pre></div><h2 id="license">License</h2>
 <p><a href="https://www.opensource.org/licenses/mit-license.php">MIT</a></p>
 
 
@@ -130,7 +138,9 @@ setInterval(() =&gt; {
 
        <script src="./js/libs/custom-elements.min.js"></script>
        <script src="./js/libs/lit-html.js"></script>
-       <script src="./js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="./js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="./js/menu-wc.js" defer></script>
 
        <script src="./js/libs/bootstrap-native.js"></script>
 

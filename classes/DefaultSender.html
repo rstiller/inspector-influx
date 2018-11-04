@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -126,17 +123,14 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                    <span class="modifier">Async</span>
                                 <a href="#init">init</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                    <span class="modifier">Async</span>
                                 <a href="#isReady">isReady</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                    <span class="modifier">Async</span>
                                 <a href="#send">send</a>
                             </li>
                         </ul>
@@ -163,7 +157,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">lib/metrics/DefaultSender.ts:36</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">lib/metrics/DefaultSender.ts:38</a></div>
                             </td>
                         </tr>
 
@@ -236,7 +230,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">lib/metrics/DefaultSender.ts:28</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">lib/metrics/DefaultSender.ts:30</a></div>
                             </td>
                         </tr>
 
@@ -277,7 +271,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">lib/metrics/DefaultSender.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">lib/metrics/DefaultSender.ts:22</a></div>
                             </td>
                         </tr>
 
@@ -323,7 +317,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">lib/metrics/DefaultSender.ts:36</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">lib/metrics/DefaultSender.ts:38</a></div>
                             </td>
                         </tr>
 
@@ -351,7 +345,6 @@
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                                <span class="modifier">Async</span>
                             init
                             </b>
                             <a href="#init"><span class="icon ion-ios-link"></span></a>
@@ -368,7 +361,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">lib/metrics/DefaultSender.ts:54</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">lib/metrics/DefaultSender.ts:56</a></div>
                             </td>
                         </tr>
 
@@ -379,7 +372,7 @@
 </div>
 
                             <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                <b>Returns : </b>    <code>Promise&lt;any&gt;</code>
 
                             </div>
                     </td>
@@ -394,7 +387,6 @@
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                                <span class="modifier">Async</span>
                             isReady
                             </b>
                             <a href="#isReady"><span class="icon ion-ios-link"></span></a>
@@ -411,7 +403,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">lib/metrics/DefaultSender.ts:69</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">lib/metrics/DefaultSender.ts:74</a></div>
                             </td>
                         </tr>
 
@@ -442,7 +434,6 @@
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                                <span class="modifier">Async</span>
                             send
                             </b>
                             <a href="#send"><span class="icon ion-ios-link"></span></a>
@@ -459,7 +450,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">lib/metrics/DefaultSender.ts:79</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">lib/metrics/DefaultSender.ts:84</a></div>
                             </td>
                         </tr>
 
@@ -498,7 +489,7 @@
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                <b>Returns : </b>    <code>Promise&lt;any&gt;</code>
 
                             </div>
                                 <div class="io-description">
@@ -519,7 +510,9 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IClusterConfig, InfluxDB, IPoint } from &quot;influx&quot;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import &quot;source-map-support/register&quot;;
+
+import { IClusterConfig, InfluxDB, IPoint } from &quot;influx&quot;;
 import { Sender } from &quot;./InfluxMetricReporter&quot;;
 
 /**
@@ -572,13 +565,16 @@ export class DefaultSender implements Sender {
      *
      * @memberof DefaultSender
      */
-    public async init() {
+    public init(): Promise&lt;any&gt; {
         const database &#x3D; this.config.database;
-        const names &#x3D; await this.db.getDatabaseNames();
-        if (!names.find((value: string, index: number, arr: string[]) &#x3D;&gt; value.localeCompare(database) &#x3D;&#x3D;&#x3D; 0)) {
-            await this.db.createDatabase(database);
-        }
-        this.ready &#x3D; true;
+        return this.db.getDatabaseNames()
+            .then((names) &#x3D;&gt; {
+                if (!names.find((value: string, index: number, arr: string[]) &#x3D;&gt; value.localeCompare(database) &#x3D;&#x3D;&#x3D; 0)) {
+                    return this.db.createDatabase(database);
+                }
+                return Promise.resolve();
+            })
+            .then(() &#x3D;&gt; this.ready &#x3D; true);
     }
 
     /**
@@ -587,8 +583,8 @@ export class DefaultSender implements Sender {
      * @returns {Promise&lt;boolean&gt;}
      * @memberof DefaultSender
      */
-    public async isReady(): Promise&lt;boolean&gt; {
-        return this.ready;
+    public isReady(): Promise&lt;boolean&gt; {
+        return Promise.resolve(this.ready);
     }
 
     /**
@@ -597,8 +593,8 @@ export class DefaultSender implements Sender {
      * @param {IPoint[]} points
      * @memberof DefaultSender
      */
-    public async send(points: IPoint[]) {
-        await this.db.writePoints(points);
+    public send(points: IPoint[]): Promise&lt;any&gt; {
+        return this.db.writePoints(points);
     }
 
 }
@@ -634,7 +630,9 @@ export class DefaultSender implements Sender {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <script src="../js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

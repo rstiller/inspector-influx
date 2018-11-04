@@ -43,7 +43,7 @@
 
 <ol class="breadcrumb">
   <li>Interfaces</li>
-  <li>Sender</li>
+  <li>InfluxMetricReporterOptions</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -68,10 +68,16 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Sender interface for influxdb client abstraction.</p>
+                <p>Options for <a href="../classes/InfluxMetricReporter.html">InfluxMetricReporter</a>.</p>
 
             </p>
 
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                    <code>ScheduledMetricReporterOptions</code>
+            </p>
 
         <section>
             <h3 id="index">Index</h3>
@@ -79,20 +85,17 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <h6><b>Methods</b></h6>
+                            <h6><b>Properties</b></h6>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                    <a href="#init">init</a>
+                                        <a href="#log">log</a>
                                 </li>
                                 <li>
-                                    <a href="#isReady">isReady</a>
-                                </li>
-                                <li>
-                                    <a href="#send">send</a>
+                                        <a href="#sender">sender</a>
                                 </li>
                             </ul>
                         </td>
@@ -101,175 +104,81 @@
             </table>
         </section>
 
+
+
             <section>
-    
-        <h3 id="methods">
-            Methods
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="init"></a>
-                        <span class="name">
-                            <b>
-                            init
-                            </b>
-                            <a href="#init"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-<code>init()</code>
-                    </td>
-                </tr>
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="log"></a>
+                                        <span class="name"><b>log</b><a href="#log"><span class="icon ion-ios-link"></span></a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>log:     <code>Logger</code>
+</code>
+                                    </td>
+                                </tr>
 
 
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">lib/metrics/InfluxMetricReporter.ts:50</a></div>
-                            </td>
-                        </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>Logger</code>
+
+                                        </td>
+                                    </tr>
 
 
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>Triggers the initialization process.</p>
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>A logger instance used to report errors.</p>
 </div>
-
-                            <div>
-                            </div>
-                            <div class="io-description">
-                                <b>Returns : </b>    <code>Promise&lt;any&gt;</code>
-
-                            </div>
-                                <div class="io-description">
-                                    
-                                </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="isReady"></a>
-                        <span class="name">
-                            <b>
-                            isReady
-                            </b>
-                            <a href="#isReady"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-<code>isReady()</code>
-                    </td>
-                </tr>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="sender"></a>
+                                        <span class="name"><b>sender</b><a href="#sender"><span class="icon ion-ios-link"></span></a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>sender:     <code><a href="../interfaces/Sender.html" target="_self" >Sender</a></code>
+</code>
+                                    </td>
+                                </tr>
 
 
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">lib/metrics/InfluxMetricReporter.ts:42</a></div>
-                            </td>
-                        </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code><a href="../interfaces/Sender.html" target="_self" >Sender</a></code>
+
+                                        </td>
+                                    </tr>
 
 
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>Indicates if the sender is ready to send data.</p>
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>A sender implementation used to send metrics to influx DB server.</p>
 </div>
-
-                            <div>
-                            </div>
-                            <div class="io-description">
-                                <b>Returns : </b>    <code>Promise&lt;boolean&gt;</code>
-
-                            </div>
-                                <div class="io-description">
-                                    
-                                </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="send"></a>
-                        <span class="name">
-                            <b>
-                            send
-                            </b>
-                            <a href="#send"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-<code>send(points: IPoint[])</code>
-                    </td>
-                </tr>
-
-
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">lib/metrics/InfluxMetricReporter.ts:59</a></div>
-                            </td>
-                        </tr>
-
-
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>Sends the given data points to influxdb.</p>
-</div>
-
-                            <div class="io-description">
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>points</td>
-                                                        <td>
-                                                                    <code>IPoint[]</code>
-                                                        </td>
-                                                    
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                            <div>
-                            </div>
-                            <div class="io-description">
-                                <b>Returns : </b>    <code>Promise&lt;any&gt;</code>
-
-                            </div>
-                                <div class="io-description">
-                                    
-                                </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
-
-
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </section>
     </div>
 
 
@@ -773,7 +682,7 @@ export class InfluxMetricReporter extends ScheduledMetricReporter&lt;InfluxMetri
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
-            var COMPODOC_CURRENT_PAGE_URL = 'Sender.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'InfluxMetricReporterOptions.html';
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>
