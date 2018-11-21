@@ -347,10 +347,10 @@ export interface InfluxMetricReporterOptions extends ScheduledMetricReporterOpti
     /**
      * A logger instance used to report errors.
      *
-     * @type {Logger}
+     * @type {(Logger | null)}
      * @memberof InfluxMetricReporterOptions
      */
-    log: Logger;
+    log: Logger | null;
     /**
      * A sender implementation used to send metrics to influx DB server.
      *
@@ -408,7 +408,7 @@ export class InfluxMetricReporter extends ScheduledMetricReporter&lt;InfluxMetri
         sender: Sender,
         /**
          * The logger instance used to report metrics.
-         * @type {Logger}
+         * @type {(Logger | null)}
          */
         log?: Logger,
         /**
@@ -485,10 +485,10 @@ export class InfluxMetricReporter extends ScheduledMetricReporter&lt;InfluxMetri
     /**
      * Sets the logger instance.
      *
-     * @param {Logger} log
+     * @param {(Logger | null)} log
      * @memberof InfluxMetricReporter
      */
-    public setLog(log: Logger): void {
+    public setLog(log: Logger | null): void {
         this.options.log &#x3D; log;
     }
 
