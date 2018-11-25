@@ -72,7 +72,7 @@ export interface InfluxMetricReporterOptions extends ScheduledMetricReporterOpti
     /**
      * A logger instance used to report errors.
      *
-     * @type {Logger}
+     * @type {(Logger | null)}
      * @memberof InfluxMetricReporterOptions
      */
     log: Logger | null;
@@ -126,47 +126,47 @@ export class InfluxMetricReporter extends ScheduledMetricReporter<InfluxMetricRe
         minReportingTimeout = 1,
         tags = new Map(),
     }: {
-            /**
-             * A sender implementation used to send metrics to influx DB server.
-             * @type {Sender}
-             */
-            sender: Sender,
-            /**
-             * The logger instance used to report metrics.
-             * @type {Logger}
-             */
-            log?: Logger,
-            /**
-             * Reporting interval in the time-unit of {@link #unit}.
-             * @type {number}
-             */
-            reportInterval?: number;
-            /**
-             * The time-unit of the reporting interval.
-             * @type {TimeUnit}
-             */
-            unit?: TimeUnit;
-            /**
-             * The clock instance used determine the current time.
-             * @type {Clock}
-             */
-            clock?: Clock;
-            /**
-             * The scheduler function used to trigger reporting.
-             * @type {Scheduler}
-             */
-            scheduler?: Scheduler;
-            /**
-             * The timeout in which a metrics gets reported wether it's value has changed or not.
-             * @type {number}
-             */
-            minReportingTimeout?: number;
-            /**
-             * Common tags for this reporter instance.
-             * @type {Map<string, string>}
-             */
-            tags?: Map<string, string>;
-        }) {
+        /**
+         * A sender implementation used to send metrics to influx DB server.
+         * @type {Sender}
+         */
+        sender: Sender,
+        /**
+         * The logger instance used to report metrics.
+         * @type {(Logger | null)}
+         */
+        log?: Logger,
+        /**
+         * Reporting interval in the time-unit of {@link #unit}.
+         * @type {number}
+         */
+        reportInterval?: number;
+        /**
+         * The time-unit of the reporting interval.
+         * @type {TimeUnit}
+         */
+        unit?: TimeUnit;
+        /**
+         * The clock instance used determine the current time.
+         * @type {Clock}
+         */
+        clock?: Clock;
+        /**
+         * The scheduler function used to trigger reporting.
+         * @type {Scheduler}
+         */
+        scheduler?: Scheduler;
+        /**
+         * The timeout in which a metrics gets reported wether it's value has changed or not.
+         * @type {number}
+         */
+        minReportingTimeout?: number;
+        /**
+         * Common tags for this reporter instance.
+         * @type {Map<string, string>}
+         */
+        tags?: Map<string, string>;
+    }) {
         super({
             clock,
             log,
@@ -210,10 +210,10 @@ export class InfluxMetricReporter extends ScheduledMetricReporter<InfluxMetricRe
     /**
      * Sets the logger instance.
      *
-     * @param {Logger} log
+     * @param {(Logger | null)} log
      * @memberof InfluxMetricReporter
      */
-    public setLog(log: Logger): void {
+    public setLog(log: Logger | null): void {
         this.options.log = log;
     }
 
