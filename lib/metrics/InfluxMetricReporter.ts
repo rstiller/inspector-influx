@@ -126,47 +126,47 @@ export class InfluxMetricReporter extends ScheduledMetricReporter<InfluxMetricRe
         minReportingTimeout = 1,
         tags = new Map(),
     }: {
-        /**
-         * A sender implementation used to send metrics to influx DB server.
-         * @type {Sender}
-         */
-        sender: Sender,
-        /**
-         * The logger instance used to report metrics.
-         * @type {(Logger | null)}
-         */
-        log?: Logger,
-        /**
-         * Reporting interval in the time-unit of {@link #unit}.
-         * @type {number}
-         */
-        reportInterval?: number;
-        /**
-         * The time-unit of the reporting interval.
-         * @type {TimeUnit}
-         */
-        unit?: TimeUnit;
-        /**
-         * The clock instance used determine the current time.
-         * @type {Clock}
-         */
-        clock?: Clock;
-        /**
-         * The scheduler function used to trigger reporting.
-         * @type {Scheduler}
-         */
-        scheduler?: Scheduler;
-        /**
-         * The timeout in which a metrics gets reported wether it's value has changed or not.
-         * @type {number}
-         */
-        minReportingTimeout?: number;
-        /**
-         * Common tags for this reporter instance.
-         * @type {Map<string, string>}
-         */
-        tags?: Map<string, string>;
-    }) {
+            /**
+             * A sender implementation used to send metrics to influx DB server.
+             * @type {Sender}
+             */
+            sender: Sender,
+            /**
+             * The logger instance used to report metrics.
+             * @type {(Logger | null)}
+             */
+            log?: Logger,
+            /**
+             * Reporting interval in the time-unit of {@link #unit}.
+             * @type {number}
+             */
+            reportInterval?: number;
+            /**
+             * The time-unit of the reporting interval.
+             * @type {TimeUnit}
+             */
+            unit?: TimeUnit;
+            /**
+             * The clock instance used determine the current time.
+             * @type {Clock}
+             */
+            clock?: Clock;
+            /**
+             * The scheduler function used to trigger reporting.
+             * @type {Scheduler}
+             */
+            scheduler?: Scheduler;
+            /**
+             * The timeout in which a metrics gets reported wether it's value has changed or not.
+             * @type {number}
+             */
+            minReportingTimeout?: number;
+            /**
+             * Common tags for this reporter instance.
+             * @type {Map<string, string>}
+             */
+            tags?: Map<string, string>;
+        }) {
         super({
             clock,
             log,
@@ -228,13 +228,16 @@ export class InfluxMetricReporter extends ScheduledMetricReporter<InfluxMetricRe
         if (!value) {
             return Promise.reject(new Error("Invalid event value"));
         }
-        const point: IPoint = {
-            fields: value,
-            measurement: event.getName(),
-            tags: this.buildTags(null, event),
-            timestamp: event.getTime(),
-        };
-        return this.options.sender.send([point])
+
+        const point = this.reportGauge(event, null);
+        point.timestamp = event.getTime();
+
+        const task = this.handleResults({}, null, null, "gauge", [{
+            metric: event,
+            result: point,
+        }]);
+
+        return task
             .then(() => {
                 if (this.options.log) {
                     this.options.log.debug(`wrote event`, this.logMetadata);
@@ -355,7 +358,7 @@ export class InfluxMetricReporter extends ScheduledMetricReporter<InfluxMetricRe
         return {
             fields,
             measurement,
-            tags: this.buildTags(ctx.registry, gauge),
+            tags: this.buildTags(ctx ? ctx.registry : null, gauge),
             timestamp: ctx.date,
         };
     }
