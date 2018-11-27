@@ -489,7 +489,7 @@
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code>Promise&lt;any&gt;</code>
+                                <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
 
                             </div>
                                 <div class="io-description">
@@ -593,7 +593,7 @@ export class DefaultSender implements Sender {
      * @param {IPoint[]} points
      * @memberof DefaultSender
      */
-    public send(points: IPoint[]): Promise&lt;any&gt; {
+    public send(points: IPoint[]): Promise&lt;void&gt; {
         return this.db.writePoints(points);
     }
 
