@@ -1,5 +1,5 @@
 {
-  "name": "inspector-influx",
+  "name": "@doubret/inspector-influx",
   "description": "InfluxDB metric reporter for nodejs",
   "homepage": "https://rstiller.github.io/inspector-influx/",
   "version": "2.2.0",
@@ -49,6 +49,9 @@
     "influx": "^5.0.7",
     "inspector-metrics": "^1.16.0",
     "source-map-support": "^0.5.9"
+  },
+  "peerDependencies": {
+    "inspector-metrics": "^1.16.0"
   },
   "files": [
     "build",
