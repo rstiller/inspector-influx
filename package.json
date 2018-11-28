@@ -1,5 +1,5 @@
 {
-  "name": "@doubret/inspector-influx",
+  "name": "inspector-influx",
   "description": "InfluxDB metric reporter for nodejs",
   "homepage": "https://rstiller.github.io/inspector-influx/",
   "version": "2.2.0",
