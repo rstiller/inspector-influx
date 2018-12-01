@@ -76,7 +76,8 @@ const requests: Timer = registry.newTimer(&quot;requests&quot;);
 reporter.setLog(global.console);
 reporter.addMetricRegistry(registry);
 
-reporter.start();
+// need ot wait for the reporter to start
+await reporter.start();
 
 // example usage
 setInterval(() =&gt; {
@@ -88,7 +89,23 @@ setInterval(() =&gt; {
             a = b + i;
         }
     });
-}, 100);</code></pre></div><h2 id="local-dev">local dev</h2>
+}, 100);</code></pre></div><h2 id="reporting-events">reporting events</h2>
+<div><pre class="line-numbers"><code class="language-typescript">import { InfluxMetricReporter } from &quot;inspector-influx&quot;;
+import { Event } from &quot;inspector-metrics&quot;;
+
+const reporter: InfluxMetricReporter = ...
+
+// need ot wait for the reporter to start before reporting events
+await reporter.start();
+
+// build an ad-hoc event
+const event = new Event&lt;number&gt;(&quot;application_started&quot;)
+    .setValue(1.0)
+    .setTag(&quot;mode&quot;, &quot;test&quot;)
+    .setTag(&quot;customTag&quot;, &quot;specialValue&quot;);
+
+// send the event to influxdb
+await reporter.reportEvent(event);</code></pre></div><h2 id="local-dev">local dev</h2>
 <h3 id="using-the-playground">using the playground</h3>
 <p>To use the playground you need to have <code>docker</code> and <code>docker-compose</code> installed.</p>
 <div><pre class="line-numbers"><code class="language-bash"># boots all services (influxdb / grafana) and provisions the example dashboard

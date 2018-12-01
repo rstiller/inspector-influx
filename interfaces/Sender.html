@@ -128,7 +128,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">lib/metrics/InfluxMetricReporter.ts:51</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">lib/metrics/InfluxMetricReporter.ts:50</a></div>
                             </td>
                         </tr>
 
@@ -173,7 +173,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">lib/metrics/InfluxMetricReporter.ts:43</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">lib/metrics/InfluxMetricReporter.ts:42</a></div>
                             </td>
                         </tr>
 
@@ -218,7 +218,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">lib/metrics/InfluxMetricReporter.ts:60</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">lib/metrics/InfluxMetricReporter.ts:59</a></div>
                             </td>
                         </tr>
 
@@ -276,7 +276,6 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import &quot;source-map-support/register&quot;;
 
-import * as async from &quot;async&quot;;
 import { IPoint } from &quot;influx&quot;;
 import {
     Clock,
@@ -378,14 +377,6 @@ export class InfluxMetricReporter extends ScheduledMetricReporter&lt;InfluxMetri
      * @memberof InfluxMetricReporter
      */
     private logMetadata: any;
-    /**
-     * async queue used to queue data point sending.
-     *
-     * @private
-     * @type {async.AsyncQueue&lt;any&gt;}
-     * @memberof InfluxMetricReporter
-     */
-    private queue: async.AsyncQueue&lt;any&gt;;
 
     /**
      * Creates an instance of InfluxMetricReporter.
@@ -459,18 +450,6 @@ export class InfluxMetricReporter extends ScheduledMetricReporter&lt;InfluxMetri
             tags,
             unit,
         };
-
-        this.queue &#x3D; async.queue((task: (clb: () &#x3D;&gt; void) &#x3D;&gt; void, callback: () &#x3D;&gt; void) &#x3D;&gt; {
-            task(callback);
-        }, 1);
-
-        let unlock: () &#x3D;&gt; void &#x3D; null;
-        this.queue.push((callback: () &#x3D;&gt; void) &#x3D;&gt; {
-            unlock &#x3D; callback;
-        });
-
-        this.options.sender.init()
-            .then(() &#x3D;&gt; unlock());
     }
 
     /**
@@ -494,12 +473,27 @@ export class InfluxMetricReporter extends ScheduledMetricReporter&lt;InfluxMetri
     }
 
     /**
+     * Starts the sender and calls the super method to start scheduling.
+     *
+     * @returns {Promise&lt;this&gt;}
+     * @memberof ScheduledMetricReporter
+     */
+    public async start(): Promise&lt;this&gt; {
+        await this.options.sender.init();
+        return super.start();
+    }
+
+    /**
      * Sends an event directly to influxdb.
      *
      * @param {Event} event
      * @memberof InfluxMetricReporter
      */
     public async reportEvent&lt;TEventData, TEvent extends Event&lt;TEventData&gt;&gt;(event: TEvent): Promise&lt;TEvent&gt; {
+        if (!(await this.options.sender.isReady())) {
+            throw new Error(&quot;Sender is not ready. Wait for the &#x27;start&#x27; method to complete.&quot;);
+        }
+
         const value &#x3D; event.getValue();
         if (!value) {
             return Promise.reject(new Error(&quot;Invalid event value&quot;));
@@ -558,31 +552,24 @@ export class InfluxMetricReporter extends ScheduledMetricReporter&lt;InfluxMetri
      * @returns {Promise&lt;any&gt;}
      * @memberof InfluxMetricReporter
      */
-    protected handleResults(
+    protected async handleResults(
         ctx: OverallReportContext,
         registry: MetricRegistry,
         date: Date,
         type: MetricType,
         results: Array&lt;ReportingResult&lt;any, IPoint&gt;&gt;): Promise&lt;any&gt; {
-        return new Promise((resolve, reject) &#x3D;&gt; {
-            this.queue.push((callback: () &#x3D;&gt; void) &#x3D;&gt; {
-                const points &#x3D; results.map((result) &#x3D;&gt; result.result);
-                this.options.sender.send(points)
-                    .then(() &#x3D;&gt; {
-                        if (this.options.log) {
-                            this.options.log.debug(&#x60;wrote ${type} metrics&#x60;, this.logMetadata);
-                        }
-                    })
-                    .catch((reason) &#x3D;&gt; {
-                        if (this.options.log) {
-                            this.options.log
-                                .error(&#x60;error writing ${type} metrics - reason: ${reason}&#x60;, reason, this.logMetadata);
-                        }
-                    })
-                    .then(() &#x3D;&gt; callback())
-                    .then(() &#x3D;&gt; resolve());
-            });
-        });
+        const points &#x3D; results.map((result) &#x3D;&gt; result.result);
+        try {
+            await this.options.sender.send(points);
+            if (this.options.log) {
+                this.options.log.debug(&#x60;wrote ${type} metrics&#x60;, this.logMetadata);
+            }
+        } catch (reason) {
+            if (this.options.log) {
+                this.options.log
+                    .error(&#x60;error writing ${type} metrics - reason: ${reason}&#x60;, reason, this.logMetadata);
+            }
+        }
     }
 
     /**
